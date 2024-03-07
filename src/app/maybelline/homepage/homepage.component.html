@@ -1,0 +1,72 @@
+<div class="homepage_container">
+  <app-carousel></app-carousel>
+  <div class="savings-banner">
+    <img src="../../../assets/savingBanner.jpg" alt="" />
+    <div class="savings">
+      <div class="position-relative">
+        <img src="../../../assets/saving01.avif" alt="" />
+
+        <div class="offer25">
+          <span class="text-white fw-bold fs-5">UPTO 25% Off</span> <br />
+          <span class="text-white fs-5"> Free Black Honey Mini*</span>
+        </div>
+      </div>
+      <div class="position-relative">
+        <img src="../../../assets/saving02.avif" alt="" />
+        <div class="offer25">
+          <span class="text-white fw-bold fs-5">FLAT 50% Off</span> <br />
+          <span class="text-white fs-5"> On Selected Products*</span>
+        </div>
+      </div>
+      <div class="position-relative">
+        <img src="../../../assets/saving03.avif" alt="" />
+        <div class="offer25">
+          <span class="text-white fw-bold fs-5">UPTO 25% Off</span> <br />
+          <span class="text-white fs-5"> 3 Minutes On ₹3500*</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="offer_banner">
+    <div class="savings-banner">
+      <img src="../../../assets/offerBanner.avif" alt="" width="100" />
+    </div>
+  </div>
+  <div class="new-arrivals-component">
+    <div class="new-arrival-item">
+      <div class="horizantal"></div>
+      <h3 class="title">New Arrivals</h3>
+      <div class="horizantal"></div>
+    </div>
+
+    <!-- new arrival products -->
+    <div class="new-arrival-container">
+      <ng-container *ngFor="let i of getNewArrivals">
+        <div class="arrivals-container">
+          <img [src]="i.img" alt="..." />
+          <h6>
+            {{ i.name }}
+          </h6>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div>
+    <img src="../../../assets/carousel03.avif" width="100%" alt="" />
+    <img src="../../../assets/luxeBanner.avif" width="100%" alt="" />
+  </div>
+  <div class="categories-main-container">
+    <div class="cate1"></div>
+    <h3 class="category-title">Category</h3>
+    <div class="cate1"></div>
+  </div>
+  <div class="typesOfCate-container">
+    <ng-container *ngFor="let i of getTypesOfCate">
+      <div class="cateItem">
+        <img src="{{ i.img }}" alt="..." />
+      </div>
+    </ng-container>
+    <h3 class="fontStyle p-2">RENEE - The Online Cosmetics Store</h3>
+  </div>
+  <app-footer></app-footer>
+</div>

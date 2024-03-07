@@ -1,0 +1,82 @@
+<div class="pop-up-main-container">
+  <div
+    class="d-flex justify-content-between align-items-center px-3 py-5 position-relative"
+  >
+    <span
+      class="bi bi-x-lg position-absolute top-0 end-0 mt-1 me-2"
+      style="cursor: pointer"
+      (click)="closePopUp()"
+    ></span>
+
+    <div *ngFor="let i of itemDetails">
+      <div class="d-flex justify-content-between gap-5 p-2">
+        <div class="cartImg">
+          <img src="{{ i.image_link }}" height="200" width="220" alt="" />
+        </div>
+        <div class="cartBody">
+          <div class="text-lighter display-1 fs-3">
+            {{ i.name }}
+          </div>
+          <div class="fs-4 text-muted">Price : ${{ i.price }}</div>
+          <div class="cartRating mt-2 fs-6 display-1">
+            <span
+              *ngIf="i.rating === 5 ? true : false"
+              class="bi bi-star-fill text-white bg-success py-1 px-2 me-2"
+              >{{ i.rating ? i.rating : "4.3" }}</span
+            >Ratings & Reviews.
+            <span
+              *ngIf="i.rating !== 5 ? true : false"
+              class="bi bi-star-half text-white bg-success py-1 px-2 me-2"
+              >{{ i.rating ? i.rating : "4.3" }}</span
+            >Ratings & Reviews.
+          </div>
+          <div class="cartDescription mt-2 display-6 fs-6">
+            <span class="fw-medium">Description: </span>{{ i.description }}
+          </div>
+          <div data-tooltip="SHOP NOW" class="button" *ngIf="i.in_stock">
+            <div class="button-wrapper">
+              <div class="text">Buy Now</div>
+              <span class="icon">
+                <svg
+                  viewBox="0 0 16 16"
+                  class="bi bi-cart2"
+                  fill="currentColor"
+                  height="16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                  ></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            data-tooltip="NOTIFY ME"
+            class="button"
+            *ngIf="i.in_stock === false"
+          >
+            <div class="button-wrapper">
+              <div class="text">Notify Me</div>
+              <span class="icon">
+                <svg
+                  viewBox="0 0 16 16"
+                  class="bi bi-cart2"
+                  fill="currentColor"
+                  height="16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                  ></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

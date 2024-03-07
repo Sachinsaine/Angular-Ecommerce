@@ -1,0 +1,134 @@
+<div *ngIf="myCart.length > 0 ? true : false" class="your-cart-container">
+  <div class="title"><span class="bi bi-cart4 fs-1"></span>YOURCART</div>
+  <div *ngFor="let i of myCart">
+    <div class="row d-flex align-items-center h-100" key="cart">
+      <div class="added-items-card col-7">
+        <div class="added-item-image">
+          <img [src]="i.image_link" alt="" />
+        </div>
+        <div class="added-item-body">
+          <div class="added-item-title fs-5 display-6">
+            {{ i.name }}
+          </div>
+          <div class="added-item-price fs-6 display-6">
+            Price: ${{ i.price }}
+          </div>
+          <div class="my-2">
+            <span class="bi bi-star-half bg-success text-white p-1 rounded-1">
+              {{ i.rating ? i.rating : "4.3" }}
+            </span>
+            <span class="display-1 fs-6 ms-1"> Ratings & Reviews.</span>
+          </div>
+          <!-- <div
+            *ngIf="i.product_colors.length >= 1 ? true : false && myCart"
+            class="d-flex fs-6 display-1 my-1"
+          >
+            Color: &nbsp;
+            <ng-container *ngFor="let j of i.product_colors">
+              <span *ngIf="j.colour_name === null ? false : true">
+                {{ j.colour_name.split(" ") }}</span
+              >
+            </ng-container>
+          </div> -->
+          <div class="display-1 fs-6">
+            Description: {{ i.description }}
+            <div class="quantity">
+              <select name="dropdown" id="dropdown">
+                <option value="-Quantity">Quantity</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+              </select>
+              <button id="buttonProceed"><span>Proceed</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2 d-flex justify-content-center align-items-center">
+        <button type="button" class="button" (click)="handleDeleteItem(i)">
+          <svg viewBox="0 0 448 512" class="svgIcon">
+            <path
+              d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-3 priceDetails">
+    <h3 class="display-1 text-center fs-3 w-100 border-1 border-bottom">
+      Price Details
+    </h3>
+    <div class="totalAmount">
+      <div class="d-flex justify-content-between w-100 px-2 py-2">
+        <div class="display-1 fs-6 fw-medium">Price</div>
+        <div class="display-1 fs-6 fw-medium">${{ totalAmount }}.00</div>
+      </div>
+      <div class="d-flex justify-content-between w-100 px-2 py-2">
+        <div class="display-1 fs-6 text-success fw-medium">Discount</div>
+        <div class="display-1 fs-6 text-success fw-medium">
+          <!-- -${{ handlePer }} -->
+          <span
+            [ngStyle]="{
+              color: totalAmount <= 0 ? '#ff3e3e' : '#3c973b',
+              fontSize: '15px',
+            }"
+          >
+            <span *ngIf="totalAmount < 50"> 10% off on all items! </span>
+            <span *ngIf="totalAmount >= 50 && totalAmount < 100 ? true : false"
+              >20% off on all items!
+            </span>
+            <span *ngIf="totalAmount > 100 && totalAmount < 200 ? true : false"
+              >35% off on all items!
+            </span>
+            <span *ngIf="totalAmount > 200">50% off on all items! </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="d-flex justify-content-between w-100 px-2 py-3 my-3 border-top border-bottom border-1"
+      >
+        <div class="display-1 fs-6 fw-medium">Total Amount</div>
+        <div class="display-1 fs-6 fw-medium">${{ total }}.00</div>
+      </div>
+      <p class="text-success fw-medium text-start">
+        You will save ${{ handlePer }} on this order
+      </p>
+      <div class="d-flex justify-content-center align-items-center">
+        <button routerLink="/maybelline/allProducts" class="shopMore">
+          Shop More
+        </button>
+
+        <!-- <button class="empyCart" (click)="handleEmpty()">Empty cart</button> -->
+        <button (click)="handleEmpty()" class="emptyCart">
+          <!-- (click)="displayLoginPopUp()" -->
+          Empty Cart
+        </button>
+      </div>
+      <div class="d-flex justify-content-between py-2">
+        <i class="bi bi-shield-fill-check fs-3 px-2"></i>
+        <p style="font-size: 13px">
+          Safe and Secure Payments.Easy returns.100% Authentic products.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="myCart.length <= 0 ? true : false" class="empty-cart-container">
+  <div class="empty-cart">
+    <div class="cardStyle">
+      <img src="../../../assets/emptyCart.png" alt="" />
+      <h6 class="mt-2 fw-bold">Your Shopping Cart is empty!</h6>
+      <p class="display-6 fs-6 pb-0 mb-0">Add items to it now.</p>
+
+      <button routerLink="/maybelline/allProducts" class="shopnow">
+        SHOP NOW
+      </button>
+    </div>
+  </div>
+</div>

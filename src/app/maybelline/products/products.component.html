@@ -1,0 +1,27 @@
+<app-navbar (handleSearchTextChange)="searchTextChange($event)"> </app-navbar>
+<app-sub-navbar (handleCategories)="categoryChange($event)"> </app-sub-navbar>
+<app-filter
+  [all]="totalNoOfProducts"
+  [inStock]="inStockProd"
+  [outOfStock]="outOfStockProd"
+  (handleChangeRadioBtn)="handleFilterChange($event)"
+>
+</app-filter>
+
+<!-- <h1>check: {{ filteredSearchText }}</h1> -->
+<div class="products-catainer">
+  <ng-container *ngFor="let i of constmetics">
+    <app-product-list
+      [products]="i"
+      *ngIf="
+        (radioBtnSelectedData === 'all' ||
+          i.in_stock.toString() === radioBtnSelectedData) &&
+        (filteredSearchText === '' ||
+          filteredSearchText === undefined ||
+          i.name.toLowerCase().includes(filteredSearchText.toLowerCase()) ||
+          filteredSearchText === i.product_type)
+      "
+    >
+    </app-product-list>
+  </ng-container>
+</div>

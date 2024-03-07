@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Roboto&display=swap");
+.deleteConformation {
+  padding: 35px 25px;
+
+  h3 {
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+  }
+  p {
+    color: rgb(153 153 153);
+    font-family: "Roboto", sans-serif;
+    margin: 20px 0px;
+  }
+  .cancel {
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 2px;
+    padding: 10px 40px;
+    color: #000000;
+    background: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .cancel:hover {
+    color: var(--maybelline--theme-main-color);
+  }
+  .remove {
+    background: var(--maybelline--theme-main-color);
+    color: #fff;
+    border-radius: 2px;
+    padding: 10px 40px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+  }
+  .cancelation {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+  }
+}

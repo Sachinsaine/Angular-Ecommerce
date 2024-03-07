@@ -1,0 +1,69 @@
+<div class="navbar_container">
+  <div class="navbar_links">
+    <div class="categories">
+      <a routerLink="/">
+        <img src="../../../assets/REENE-logo.avif" alt="" />
+      </a>
+      <div class="category_links">
+        <a routerLink="/maybelline/allProducts"> ALL PRODUCTS </a>
+        <a routerLink="/maybelline/beautyAdvice">BEAUTY ADVICE</a>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <div class="group">
+        <!-- <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <g>
+              <path
+                d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+              ></path>
+            </g>
+          </svg> 
+         <input
+            placeholder="Search"
+            type="search"
+            class="input"
+            [(ngModel)]="searchText"
+            (keyup)="handleSearchText()"
+          /> -->
+        <input placeholder="Search" type="search" class="input" #searchInput />
+        <svg
+          class="icon"
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          (click)="hanldeSearch()"
+        >
+          <g>
+            <path
+              d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+            ></path>
+          </g>
+        </svg>
+      </div>
+      <a routerLink="/login">
+        <button type="button">
+          <!-- (click)="displayLoginPopUp()" -->
+          Login <span class="bi badg"></span>
+        </button>
+      </a>
+
+      <div class="cart">
+        <a routerLink="/maybelline/yourCart" class="position-relative">
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20.5 7.2H16.2V6.9C16.3 4.5 14.4 2.5 12 2.5C9.6 2.6 7.8 4.5 7.8 6.9V7.2H3.5C2.9 7.2 2.5 7.6 2.5 8.2V16.4C2.5 19.2 4.7 21.4 7.5 21.4H16.5C19.3 21.4 21.5 19.2 21.5 16.4V8.2C21.5 7.7 21.1 7.2 20.5 7.2ZM9.3 6.9C9.3 5.4 10.5 4.1 12 4C13.5 4.1 14.7 5.4 14.7 6.9V7.2H9.3V6.9ZM20 16.5C20 18.4 18.4 20 16.5 20H7.5C5.6 20 4 18.4 4 16.5V8.7H7.8V10.7C7.6 10.9 7.5 11.2 7.5 11.4C7.5 12 8 12.4 8.5 12.4C9 12.4 9.5 11.9 9.5 11.4C9.5 11.1 9.4 10.9 9.2 10.7V8.7H14.6V10.6C14.4 10.8 14.3 11.1 14.3 11.4C14.3 12 14.7 12.5 15.3 12.5C15.9 12.5 16.4 12.1 16.4 11.5C16.4 11.2 16.3 11 16.1 10.8V8.8H20V16.5Z"
+              fill="black"
+            ></path>
+          </svg>
+          <span class="cartCounts"> {{ getTotalNoOfItemsAdded() }} </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

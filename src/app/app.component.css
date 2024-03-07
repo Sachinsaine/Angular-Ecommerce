@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+:root {
+  --maybelline--theme-main-color: rgb(252, 39, 121);
+  --maybelline--text-color: #ffffff;
+  --black-theme-nav-background-color: #181818;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  height: 100%;
+}
+#root {
+  height: 100%;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Dancing Script", cursive;
+}

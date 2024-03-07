@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+
+.beauty-container {
+  width: 100vw;
+  top: 60px;
+  position: relative;
+  left: 0px;
+  height: 100%;
+}
+iframe {
+  border-radius: 8px;
+}
+h2 {
+  text-align: center;
+  margin: 20px 0;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  font-weight: 600;
+}
+svg {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+}

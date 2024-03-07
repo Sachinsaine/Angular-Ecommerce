@@ -1,0 +1,27 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+  position: relative;
+  top: 0px;
+  width: 100%;
+  #carousel_title {
+    font-size: 23px;
+    margin: 15px;
+    font-weight: 700;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+  }
+  .carousel-inner {
+    border-radius: 10px;
+    .carousel-item {
+      img {
+        height: 320px;
+      }
+    }
+  }
+}

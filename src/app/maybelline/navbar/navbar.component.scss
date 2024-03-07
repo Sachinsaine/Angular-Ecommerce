@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+
+.navbar_container {
+  height: 60px;
+  width: 100%;
+  box-shadow: 0px 0px 5px #dee2e6;
+  align-items: center;
+  display: flex;
+  //flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  background: #fff;
+
+  .navbar_links {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    width: 100%;
+    align-items: center;
+
+    .categories {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 40px;
+        cursor: pointer;
+      }
+      .category_links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+
+        a {
+          text-decoration: none;
+          padding: 5px 10px;
+          text-decoration: none;
+          transition: all 0.5s ease;
+          color: var(--black--theme-color);
+        }
+        a:hover {
+          //background: rgba(255, 255, 255, 0.4);
+          background-color: rgb(255, 245, 245);
+          color: var(--maybelline--theme-main-color);
+          border-radius: 2px;
+        }
+      }
+    }
+    .search-container {
+      width: 50%;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      justify-content: end;
+
+      .group {
+        display: flex;
+        line-height: 28px;
+        align-items: center;
+        position: relative;
+        max-width: 190px;
+        cursor: pointer;
+      }
+
+      .input {
+        width: 100%;
+        height: 40px;
+        line-height: 28px;
+        padding: 0 1rem;
+        border: 1.5px solid transparent;
+        border-radius: 5px;
+        outline: none;
+        background-color: #f3f3f4;
+        color: #0d0c22;
+        transition: 0.3s ease;
+        padding-right: 40px;
+        padding-left: 10px;
+      }
+
+      .input::placeholder {
+        color: #9e9ea7;
+      }
+
+      .input:focus,
+      input:hover {
+        outline: none;
+        border-color: rgba(234, 76, 137, 0.4);
+        background-color: #fff;
+        box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+      }
+
+      .icon {
+        position: absolute;
+        right: 1rem;
+        fill: #9e9ea7;
+        width: 1rem;
+        height: 1rem;
+      }
+      button {
+        --color: var(--maybelline--theme-main-color);
+        font-family: inherit;
+        display: inline-block;
+        height: 40px;
+        line-height: 28px;
+        padding: 0 10px;
+        margin: 10px;
+        position: relative;
+        overflow: hidden;
+        border: 1.5px solid var(--maybelline--theme-main-color);
+        transition: color 0.5s;
+        z-index: 1;
+        font-size: 17px;
+        border-radius: 6px;
+        font-weight: 500;
+        color: var(--color);
+      }
+
+      button:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        background: var(--color);
+        height: 150px;
+        width: 200px;
+        border-radius: 50%;
+      }
+
+      button:hover {
+        color: #fff;
+      }
+
+      button:before {
+        top: 100%;
+        left: 100%;
+        transition: all 0.7s;
+      }
+
+      button:hover:before {
+        top: -30px;
+        left: -30px;
+      }
+
+      button:active:before {
+        background: var(--maybelline--theme-main-color);
+        transition: background 0s;
+      }
+      .cart {
+        margin-left: 10px;
+        cursor: pointer;
+
+        .cartCounts {
+          background: var(--maybelline--theme-main-color);
+          display: block;
+          position: absolute;
+          top: 0px;
+          left: 20px;
+          border: none;
+          border-radius: 50%;
+          padding: 1px 5px;
+          color: #fff;
+          font-size: 10px;
+          font-weight: bold;
+          //padding: auto;
+        }
+      }
+    }
+  }
+}
+
+//category navigation links style sheet
+.category_navigation {
+  display: flex;
+  background: var(--maybelline--background--white-color);
+  height: 50px;
+  box-shadow: 0px 0px 10px #dee2e6;
+  align-items: center;
+  justify-content: space-around;
+  z-index: -1;
+  position: sticky;
+  top: 10px;
+
+  a {
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+  }
+}
