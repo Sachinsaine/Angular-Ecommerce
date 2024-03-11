@@ -7,7 +7,11 @@
     id="container"
   >
     <div class="form-container sign-up">
-      <form>
+      <form
+        novalidate
+        #signUpForm="ngForm"
+        (ngSubmit)="handleSignUpForm(signUpForm)"
+      >
         <h1>Create Account</h1>
         <div class="social-icons">
           <a href="#" class="icon"><i class="bi bi-google"></i></a>
@@ -19,26 +23,68 @@
         <input
           type="text"
           name="name"
+          #userName="ngModel"
           [(ngModel)]="singUp.name"
           placeholder="Name"
+          required
+          minlength="4"
         />
+        <div class="text-danger" *ngIf="userName.touched && userName.invalid">
+          <small *ngIf="userName.errors?.['required']">
+            *This field is required
+          </small>
+          <small *ngIf="userName.errors?.['minlength']">
+            *Your username must be at least 4 characters long
+          </small>
+        </div>
         <input
           type="email"
           name="email"
           [(ngModel)]="singUp.email"
           placeholder="Email"
+          #userEmail="ngModel"
+          required
+          pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
         />
+        <div *ngIf="userEmail.touched && userEmail.invalid" class="text-danger">
+          <small *ngIf="userEmail.errors?.['required']">
+            *This field is required
+          </small>
+          <small *ngIf="userEmail.errors?.['pattern']">
+            *Please enter valid email
+          </small>
+        </div>
         <input
           type="password"
           [(ngModel)]="singUp.password"
           name="password"
           placeholder="Password"
+          #userPassword="ngModel"
+          required
+          pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$"
         />
+
+        <div
+          *ngIf="userPassword.invalid && userPassword.touched"
+          class="text-danger"
+        >
+          <small *ngIf="userPassword.errors?.['required']"
+            >*This field is required</small
+          >
+          <small *ngIf="userEmail.errors?.['pattern']"
+            >Password should be atleast 8 characters long and should contain one
+            number,one character and one special character
+          </small>
+        </div>
         <button (click)="handleSignUp()">Sign Up</button>
       </form>
     </div>
     <div class="form-container sign-in">
-      <form>
+      <form
+        novalidate
+        #signInForm="ngForm"
+        (ngSubmit)="handleSignInForm(signUpForm)"
+      >
         <h1>Sign In</h1>
         <div class="social-icons">
           <a href="#" class="icon"><i class="bi bi-google"></i></a>
@@ -47,8 +93,47 @@
           <a href="#" class="icon"><i class="bi bi-linkedin"></i></a>
         </div>
         <span>or use your email password</span>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
+
+        <input
+          name="email"
+          #loginEmail="ngModel"
+          [(ngModel)]="login.email"
+          type="email"
+          placeholder="Email"
+          pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+          required
+        />
+        <div
+          class="text-danger"
+          *ngIf="loginEmail.invalid && loginEmail.touched"
+        >
+          <small *ngIf="loginEmail.errors?.['required']">
+            *This field if required
+          </small>
+          <small *ngIf="loginEmail.errors?.['pattern']">
+            *Please Enter valid email
+          </small>
+        </div>
+        <input
+          name="password"
+          #loginPassword="ngModel"
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="login.password"
+          required
+          pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$"
+        />
+        <div
+          class="text-danger"
+          *ngIf="loginPassword.invalid && loginPassword.touched"
+        >
+          <small *ngIf="loginPassword.errors?.['required']">
+            *This field if required
+          </small>
+          <small *ngIf="loginPassword.errors?.['pattern']">
+            *Please Enter valid email
+          </small>
+        </div>
         <a href="#">→ Forget Your Password? ←</a>
         <button>Sign In</button>
       </form>

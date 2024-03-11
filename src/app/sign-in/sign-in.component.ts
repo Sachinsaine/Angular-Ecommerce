@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,7 +12,7 @@ export class SignInComponent {
   login: Login = new Login();
 
   handleSignUp() {
-    debugger;
+    // debugger;
     const data = localStorage.getItem('userData');
     if (data != null) {
       const users = JSON.parse(data);
@@ -22,6 +23,16 @@ export class SignInComponent {
       arr.push(this.singUp);
       localStorage.setItem('userData', JSON.stringify(arr));
     }
+  }
+
+  private router = inject(Router);
+
+  handleSignUpForm(data: any) {
+    console.log(data.value);
+    this.router.navigate(['/']);
+  }
+  handleSignInForm(data: any) {
+    console.log(data.value);
   }
 }
 
