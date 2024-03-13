@@ -18,6 +18,9 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { ItemDeletePopupComponent } from './item-delete-popup/item-delete-popup.component';
 import { ButtonModule } from 'primeng/button';
+import { CardCarouselComponent } from './card-carousel/card-carousel.component';
+import { CarouselModule } from 'primeng/carousel';
+
 @NgModule({
   declarations: [
     BeautyAdviceComponent,
@@ -33,6 +36,7 @@ import { ButtonModule } from 'primeng/button';
     HomepageComponent,
     FooterComponent,
     ItemDeletePopupComponent,
+    CardCarouselComponent,
   ],
   imports: [
     CommonModule,
@@ -41,6 +45,7 @@ import { ButtonModule } from 'primeng/button';
     HttpClientModule,
     FormsModule,
     ButtonModule,
+    CarouselModule,
   ],
 })
 export class MaybellineModule {}

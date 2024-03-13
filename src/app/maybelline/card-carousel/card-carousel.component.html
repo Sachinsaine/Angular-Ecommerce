@@ -1,0 +1,28 @@
+<div class="card-style my-3">
+  <p-carousel
+    [value]="products"
+    [numVisible]="3"
+    [numScroll]="1"
+    [responsiveOptions]="responsiveOptions"
+  >
+    <ng-template let-product pTemplate="item">
+      <div
+        class="border-1 surface-border border-round m-2 text-center py-5 px-3"
+      >
+        <div class="mb-3">
+          <img
+            src="{{ product.img }}"
+            height="150px"
+            width="50%"
+            alt="{{ product.name }}"
+            class="w-6 shadow-2"
+          />
+        </div>
+        <div>
+          <h6 class="mb-1 display-1 fs-6">{{ product.title }}</h6>
+          <h6 class="mt-0 mb-3">{{ product.price }}</h6>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
